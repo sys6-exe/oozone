@@ -35,13 +35,46 @@ print(f"Median doxdtdyn: {median_doxdtdyn}")
 print(f"Standard Deviation doxdtdyn: {std_doxdtdyn}")
 
 
+
+
+#  bar graph of mean doxdtana at each level
+plt.figure(figsize=(12, 6))
+plt.bar(levels, mean_doxdtana, color='blue')
+plt.xlabel('Levels')
+plt.ylabel('Mean doxdtana')
+plt.title('Mean doxdtana at Each Level')
+plt.show()
+
+# Create a scatter plot of doxdtana vs. doxdtdyn
+plt.figure(figsize=(8, 6))
+plt.scatter(doxdtana.flatten(), doxdtdyn.flatten(), alpha=0.5)
+plt.xlabel('doxdtana')
+plt.ylabel('doxdtdyn')
+plt.title('Scatter Plot of doxdtana vs. doxdtdyn')
+plt.show()
+
+
+
+#  bar graph of mean doxdtdyn at each level
+plt.figure(figsize=(12, 6))
+plt.bar(levels, mean_doxdtdyn, color='green')
+plt.xlabel('Levels')
+plt.ylabel('Mean doxdtdyn')
+plt.title('Mean doxdtdyn at Each Level')
+plt.show()
+
+#histogram between doxdtana and doxdtyna 
 plt.figure(figsize=(12, 6))
 plt.subplot(1, 2, 1)
 sns.histplot(doxdtana.flatten(), kde=True, color='blue')
 plt.title('Histogram of doxdtana')
-
 plt.subplot(1, 2, 2)
 sns.histplot(doxdtdyn.flatten(), kde=True, color='green')
 plt.title('Histogram of doxdtdyn')
 
 plt.show()
+
+
+# correlation coefficient
+correlation = np.corrcoef(doxdtana.flatten(), doxdtdyn.flatten())[0, 1]
+print(f"Correlation coefficient between doxdtana and doxdtdyn: {correlation}")
